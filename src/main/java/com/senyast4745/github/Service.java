@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.List;
+import java.util.concurrent.ConcurrentLinkedDeque;
 
 @Controller
 public class Service {
@@ -40,7 +40,7 @@ public class Service {
     // и по callback вызывется нужный метод
 
     @RequestMapping("/hw2")
-    public String indexFuck() {
+    public String indexSecond() {
         return "index2";
     }
     //http://localhost:8080/create?description=12 -
@@ -48,7 +48,7 @@ public class Service {
     // запрос по GET (нельзя изменять структуру сервера, небезопасно)
    /* @RequestMapping ("/create")
     public @ResponseBody
-    ToDo create(@RequestParam String description){
+    oDo create(@RequestParam String description){
         return dao.create(description);
     }*/
 
@@ -89,7 +89,7 @@ public class Service {
 
     @RequestMapping(value = "/showAll", method = RequestMethod.GET)
     public @ResponseBody
-    List<ToDo> showAll() {
+    ConcurrentLinkedDeque<ToDo> showAll() {
         return dao.showAll();
     }
 
